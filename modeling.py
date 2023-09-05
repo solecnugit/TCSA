@@ -20,7 +20,7 @@ class TimingGraph:
 
 
     def gen_thread_timing_event_graph(self,df: pd.DataFrame) -> None:
-        """。
+        """
 
         :param df: The DataFrame needs to contain ts_begin, ts_end and the same events continuously.
         :return: 
@@ -55,14 +55,20 @@ class TimingGraph:
         else:
             fig_width = 50
             fig_length = 200
-        fig, ax = plt.subplots(figsize=(fig_width, fig_length))  # 设置画布大小
-        barh_y_height = 1  # 图中相同事件条状图的宽度
-        barh_y_position = [i for i in range(2, 2 * (tmp_length + 1), 2)]  # 相邻两个条状图之间的距离
 
-        # for check breakpoint
+        # Set canvas size
+        fig, ax = plt.subplots(figsize=(fig_width, fig_length))
+
+        # The width of the bar graph of the same event (consecutive identical call path) in the timing graph
+        barh_y_height = 1 
+
+        # The distance between two adjacent bar graphs
+        barh_y_position = [i for i in range(2, 2 * (tmp_length + 1), 2)]  
+
+        # For check breakpoint
         tid_check_breakpoint_df_list = []
 
-        # for same event , achieve the same color when the function call same one
+        # Mark the same call path with the same color.
         identical_event = 'user_defined_indentical_call_stacks'
         identical_event_list = df[identical_event].tolist()
         identical_event_list = list(set(identical_event_list))
@@ -79,7 +85,7 @@ class TimingGraph:
                         break
                     else:
                         continue
-        # 初始化 identical event 对应的颜色
+        # Initialize the color corresponding to identical call paths.
         index = 0
         for i in identical_event_list:
             identical_event_color[i] = colors[index]

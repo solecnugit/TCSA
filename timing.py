@@ -82,8 +82,8 @@ class DataPreparation():
         return perf_records_df
 
 
-# input_file_path = "/home/critical_path_analysis/TCSA/test_data/perf_data.txt"
-# # input_file_path = "/home/critical_path_analysis/test_data/perf.txt"
+# input_file_path = "/home/TCSA/test_data/perf_data.txt"
+# # input_file_path = "/home/test_data/perf.txt"
 # # input_file_path = "/home/data/redis_data/perf_script_ag_8.txt"
 # result = DataPreparation().data_loading(input_file_path=input_file_path)
 # result = DataPreparation().data_processing(result)

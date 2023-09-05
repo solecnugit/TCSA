@@ -26,29 +26,30 @@ def input_argv() -> str:
     try:
         direction = int(sys.argv[3])
     except:
-        direction = 0  # 0 表示调用栈自底向上，1 表示自顶向下。
+        direction = 0  # 0 represents a bottom-up call stack, and 1 represents a top-down call stack.
     try:
         degrees_of_freedom = int(sys.argv[4])
     except:
-        degrees_of_freedom = -1  # -1 表示线程的全部调用栈进行匹配。
+        degrees_of_freedom = -1  # -1 indicates that the entire call stack of the thread is matched.
     try:
         threshold = int(sys.argv[5])
     except:
-        threshold = -1  # 设置持续次数的阈值，默认-1表示使用均值。
+        threshold = -1  # Set the threshold for the duration, with the default -1 indicating the use of the mean value.
     return perf_file_path,output_path,direction,degrees_of_freedom,threshold
 
 
 if __name__ == '__main__':
    
-
-    # file_path,output_path,direction,degrees_of_freedom,threshold = input_argv()
+    input_file_path,output_file_path,direction,degrees_of_freedom,threshold = input_argv()
 
     # The following parameters can be used for testing convenience.
-    input_file_path = "/home/critical_path_analysis/TCSA/test_data/perf_data.txt"
-    output_file_path = "/home/critical_path_analysis/TCSA/test_data/result"
-    direction = 0
-    degrees_of_freedom = -1
-    threshold = -1
+    # -- test begin
+    # input_file_path = "data/perf_data.txt"
+    # output_file_path = "data/result"
+    # direction = 0
+    # degrees_of_freedom = -1
+    # threshold = -1
+    # -- test end
 
     if not os.path.exists(output_file_path):
         os.makedirs(output_file_path)
@@ -67,13 +68,13 @@ if __name__ == '__main__':
     # example:
     # [ [subTOCC_kernel_1,subTOCC_kernel_2,...]
     #   [subTOCC_user_1,subTOCC_user_2,...] ]
-    end_time_8 = time.time() 
 
+    end_time_3 = time.time() 
     # print("Time：" + str(end_time_8 - start_time))
     perf_records_df_length = len(timing_call_stacks_data)
     # print("Size of data volume：" + str(perf_records_df_length))
     # print("Time taken to load/process data:" + str(end_time_2 - start_time))
-    print("Detecting time consuming:" + str(end_time_8-end_time_2))
+    print("Detecting time consuming(excluding time spent loading data):" + str(end_time_3-end_time_2))
 
     file_name_pre = 'res_'
     num = 1

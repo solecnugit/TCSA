@@ -50,9 +50,13 @@ def get_user_defined_indentical_call_stacks(function_list: list, degrees_of_free
     """
     original_length = len(function_list)
     length = min(degrees_of_freedom, original_length)
-    if (length == -1):  # degrees_of_freedom -1 means max
+
+    # degrees_of_freedom -1 means max
+    if (length == -1): 
         length = len(function_list)
-    if (direction == 0):  # direction 0 mean bottom up
+
+    # direction 0 mean bottom up
+    if (direction == 0): 
         function_list = function_list[0:length]
     else:
         function_list = function_list[(original_length - length):length]
