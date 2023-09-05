@@ -182,7 +182,7 @@ def output_result_file(output_path: str, file_name: str, df: pd.DataFrame) -> No
     all_res_list.append(tmp_str)
 
     file_name_num = file_name.split('_')[1]
-    tmp_str = "Cotention group " + str(file_name_num) + " :" 
+    tmp_str = "Contention group " + str(file_name_num) + " :" 
     all_res_list.append(tmp_str)
     tmp_str = "Time period: " + str(ts_min) + " ~ " + str(ts_max) 
     output_result.append(tmp_str)

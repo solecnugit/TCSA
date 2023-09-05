@@ -161,9 +161,20 @@ def judge_execution_mode(call_stack: list) -> int:
     # 2 is the function source code corresponding path
     function_address = top_function_list[0]
     execution_mode = 1  # kernel 0, user 1
-    kernel_address = 'ffffffff00000000'
-    if (function_address >= kernel_address):
-        execution_mode = 0
+
+    # 64bit kernel space: 0xffffffff80000000~0xffffffffffffffff
+    # 64bit user space: 0x0000000000000000~0x00007fffffffffff
+    # 32bit kernel space: 0xc0000000~0xffffffff
+    # 32bit user space: 0x00000000~0xbfffffff
+    # TODO: Remove magic number.
+    function_address_len = len(function_address)
+    if(function_address_len > 10):
+        if(function_address >= 'ffffffff80000000' and function_address <= 'ffffffffffffffff'):
+            execution_mode = 0
+    else:
+        if(function_address >= 'c0000000' and function_address <= 'xffffffff'):
+          execution_mode = 0  
+ 
     return execution_mode
 
 
