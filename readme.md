@@ -2,8 +2,37 @@
 
 This repository is the implementation of TCSA. 
 
+# Performance Data Collection
+
+We have implemented a performance data collection script in the `collector` folder to automate the collection of performance data by setting parameters for sampling.
+The sampling parameters include: start time, end time, sampling frequency, and sampling period of performance data sampling.
+
+There are two ways to realize automated sampling:
+
+(1) Set the above parameters in recorder.bash to execute automated sampling and immediately execute recorder.bash.
+
+(2) Setting a timer (e.g., `cron`) to execute the `recorder.bash` script file at regular intervals.
+
+Let's take `cron` as an example to illustrate (2).
+
+ - First edit the cron task list with `crontab -e`.
+ - Then add the timed tasks you want to execute. Example: `0 3 * * * * /path/recorder.bash` means "Execute the recorder.bash script under the `/path` path at 3:00 a.m. every day".
+
+After `recorder.bash` is executed, the performance data is stored in the current directory.
+
+The `converter.bash` script converts all `perfX.data` into `perfX.txt` files.
+
+
+Of course, it is also possible to perform the performance data collection and conversion process manually.
+
+
 
 # Localization with TCSA:
+
+
+We automate the location of busy-wait synchronization performance bugs by executing TCSA as shown below. We need to specify the path to the performance data to be analyzed and specify the path to where the result files of the automated location are stored.
+
+Use the command as follows:
 
 **`python main.py <file_path> <output_path> [direction] [degrees_of_freedom] [threshold]`**
 
