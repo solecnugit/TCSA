@@ -53,3 +53,9 @@ Use the command as follows:
 - python3
 
 - perf
+
+# Repository
+
+origin: https://jihulab.com/solecnu/tcsa
+
+mirror: https://github.com/MercuryLc/TCSA
