@@ -27,7 +27,7 @@ Of course, it is also possible to perform the performance data collection and co
 
 
 
-# Localization with TCSA:
+# Localization with TCSA
 
 
 We automate the location of busy-wait synchronization performance bugs by executing TCSA as shown below. We need to specify the path to the performance data to be analyzed and specify the path to where the result files of the automated location are stored.
@@ -49,10 +49,22 @@ Use the command as follows:
 
 
 # Requirements
+The specific environment requirements for python are in the requirements.txt file.
 
 - python3
 
-- perf
+- Linux perf
+
+
+# People 
+
+- System Optimization Lab, East China Normal University (SOLE)
+
+
+# Contact Information
+
+If you have any questions or suggestions, please contact Ning Li via ningli@stu.ecnu.edu.cn.
+
 
 # Repository
 
