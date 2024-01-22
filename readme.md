@@ -2,7 +2,9 @@
 
 This repository is the implementation of TCSA. 
 
-# Performance Data Collection
+# Usage
+
+## Performance Data Collection
 
 We have implemented a performance data collection script in the `collector` folder to automate the collection of performance data by setting parameters for sampling.
 The sampling parameters include: start time, end time, sampling frequency, and sampling period of performance data sampling.
@@ -27,7 +29,7 @@ Of course, it is also possible to perform the performance data collection and co
 
 
 
-# Localization with TCSA
+## Localization with TCSA
 
 
 We automate the location of busy-wait synchronization performance bugs by executing TCSA as shown below. We need to specify the path to the performance data to be analyzed and specify the path to where the result files of the automated location are stored.
@@ -55,6 +57,8 @@ The specific environment requirements for python are in the requirements.txt fil
 
 - Linux perf
 
+# Example
+
 
 # People 
 
@@ -63,10 +67,10 @@ The specific environment requirements for python are in the requirements.txt fil
 
 # Contact Information
 
-If you have any questions or suggestions, please contact Ning Li via ningli@stu.ecnu.edu.cn.
+If you have any questions or suggestions, please contact Ning Li via ningli@stu#DOTecnu#DOTedu.cn.
 
 
-# Repository
+# Repository Special Description
 
 origin: https://jihulab.com/solecnu/tcsa
 
